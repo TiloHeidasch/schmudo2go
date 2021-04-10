@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5715;
+    background-color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+#header {
+    height: 73px;
+    display: flex;
+    margin: 0;
+    padding: 8px 16px 0px;
+    -moz-box-align: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(151, 151, 151);
+}
+
+#logo {
+    width: 50%;
+}
+
+#logo img {
+    width: 87px;
+    height: 48px;
+}
+
+#menu {
+    width: 50%;
+}
+
+#menu img {
+    float: right;
+}
+
+#qrparent {
+    width: 216px;
+    margin: 23.75vh auto 23vh;
+    text-align: center;
+    letter-spacing: .25px;
+    font-family: Montserrat-Medium, sans-serif;
+}
+
+canvas {
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    margin-top: 15px;
+    padding: 8px;
+}
+
+#buttonparent {
+    width: 300px;
+    margin: 0 auto;
+}
+
+button {
+    width: 100%;
+    margin: 12px 0;
+    max-width: 296px;
+    font-weight: 400;
+    text-align: center;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .015);
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    user-select: none;
+    height: 32px;
+    padding: 4px 15px;
+    font-size: 14px;
+    border-radius: 24px;
+    color: #000;
+    background: #fff none;
+    border: 1px solid #d9d9d9;
+    font-family: Montserrat-SemiBold, sans-serif;
+}
+
+
+button:nth-of-type(1) {
+    border-width: 0 !important;
+    background: rgb(184, 192, 202) none repeat scroll 0 0;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 26.3px;
+}
+
+button:nth-of-type(2) {
+    width: 100%;
+    height: 36px;
+    margin: 12px 0;
+    max-width: 296px;
+    background: rgb(129, 142, 161) none repeat scroll 0 0;
+    border: 2px solid rgb(129, 142, 161);
+}
+
+#footer {
+    display: flex;
+    padding: 0;
+    position: absolute;
+    height: 64px;
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+
+
+    border-top: 1px solid rgb(151, 151, 151);
+}
+
+#checkin,
+#history {
+    width: 50%;
+}
+
+#checkin h3, #history h3 {
+    display: flex;
+    font-size: 10px;
+    padding-top: 8px;
+    line-height: 30px;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(195, 206, 217);
+    margin: 0;
+}
+
+#checkin h3 {
+    border-top: 1px solid rgb(255, 255, 255);
+}
+
