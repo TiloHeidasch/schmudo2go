@@ -73,9 +73,15 @@
     });
 
     function makeCode() {
+        let snakeoil = '030101';
+        let tshex = Math.floor(Date.now() / 1000).toString(16);
+        snakeoil += tshex;
+        snakeoil += getRanHex(178);
+        snakeoil += sha256(snakeoil).substring(0, 8)
         if ($('#qrcode canvas')) {
             $('#qrcode canvas').remove();
         }
+        console.log(snakeoil)
         qrcode.makeCode('https://linktr.ee/zdfmagazinroyale');
     }
 
