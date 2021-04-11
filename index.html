@@ -111,16 +111,14 @@
     function makeCode() {
         let snakeoil = '030101';
         let tshex = Math.floor(Date.now() / 1000).toString(16);
+        tshex=tshex.match(/(..?)/g).reverse().join("");
         snakeoil += tshex;
         snakeoil += getRanHex(178);
         snakeoil += sha256(parseHexString(snakeoil)).substring(0, 8)
         snakeoil = encode(parseHexString(snakeoil));
         if ($('#qrcode canvas')) {
             $('#qrcode canvas').remove();
-        }
-        console.log(snakeoil)
-        console.log(Math.floor(Date.now() / 1000))
-        //qrcode.makeCode('https://linktr.ee/zdfmagazinroyale');
+        }        
         qrcode.makeCode(snakeoil);
     }
 
