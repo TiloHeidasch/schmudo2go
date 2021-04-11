@@ -1,63 +1,58 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
-    <style>
-    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="#000000">
     <link href="style.css" rel="stylesheet">
-    <script type="text/javascript" src="lib/qrcodejs/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/qrcodejs/qrcode.js"></script>
-    <script type="text/javascript" src="lib/sha256.js"></script>
+    <script src="lib/qrcodejs/jquery.min.js"></script>
+    <script src="lib/qrcodejs/qrcode.js"></script>
+    <script src="lib/sha256.js"></script>
+    <title>&nbsp;</title>
 </head>
-<body class="vsc-initialized">
+<body>
 <div id="root">
+    <div id="header">
+        <div id="logo">
+            <img src="img/luca.svg" alt="Logo">
+        </div>
+        <div id="menu">
+            <img src="img/menu.svg" alt="Menu">
+        </div>
+    </div>
     <div>
-        <div>
-            <container id="header">
-                <div id="logo">
-                    <img src="img/luca.svg">
-                </div>
-                <div id="menu">
-                    <img src="img/menu.svg">
-                </div>
-            </container>
-            <div>
-                <div id="qrparent">
-                    <span>Dein anonymer QR-Code:</span>
-                    <div id="qrcode">
-                        <canvas height="200" width="200"></canvas>
-                    </div>
-                </div>
-                <div id="buttonparent">
-                    <button type="button" class="ant-btn">
-                        <span>Selbst einchecken</span>
-                    </button>
-                    <button type="button" class="ant-btn">
-                        <span>Privates Treffen erstellen</span>
-                    </button>
-                </div>
+        <div id="qrparent">
+            <span>Dein anonymer QR-Code:</span>
+            <div id="qrcode">
+                <canvas height="200" width="200"></canvas>
             </div>
-            <container id="footer">
-                <div id="checkin">
-                    <h3>
-                        <img src="img/historie.svg">
-                        Einchecken
-                    </h3>
-                </div>
-                <div id="history">
-                    <h3 class="">
-                        <img src="img/einchecken.svg">
-                        Historie
-                    </h3>
-                </div>
-            </container>
+        </div>
+        <div id="buttonparent">
+            <button type="button" class="ant-btn">
+                <span>Selbst einchecken</span>
+            </button>
+            <button type="button" class="ant-btn">
+                <span>Privates Treffen erstellen</span>
+            </button>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="checkin">
+            <h3>
+                <img src="img/historie.svg" alt="Einchecken">
+                Einchecken
+            </h3>
+        </div>
+        <div id="history">
+            <h3 class="">
+                <img src="img/einchecken.svg" alt="Historie">
+                Historie
+            </h3>
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
+<script>
     var charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-:+=^!/*?&<>()[]{}@%$#';
 
     function parseHexString(str) {
@@ -111,14 +106,14 @@
     function makeCode() {
         let snakeoil = '030101';
         let tshex = Math.floor(Date.now() / 1000).toString(16);
-        tshex=tshex.match(/(..?)/g).reverse().join("");
+        tshex = tshex.match(/(..?)/g).reverse().join("");
         snakeoil += tshex;
         snakeoil += getRanHex(178);
         snakeoil += sha256(parseHexString(snakeoil)).substring(0, 8)
         snakeoil = encode(parseHexString(snakeoil));
         if ($('#qrcode canvas')) {
             $('#qrcode canvas').remove();
-        }        
+        }
         qrcode.makeCode(snakeoil);
     }
 
