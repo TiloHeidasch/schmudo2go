@@ -9,6 +9,7 @@
     <link href="style.css" rel="stylesheet">
     <script type="text/javascript" src="lib/qrcodejs/jquery.min.js"></script>
     <script type="text/javascript" src="lib/qrcodejs/qrcode.js"></script>
+    <script type="text/javascript" src="lib/sha256.js"></script>
 </head>
 <body class="vsc-initialized">
 <div id="root">
@@ -57,16 +58,68 @@
 </div>
 
 <script type="text/javascript">
+    var charset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.-:+=^!/*?&<>()[]{}@%$#';
+
+    function parseHexString(str) {
+        var result = [];
+        while (str.length >= 2) {
+            result.push(parseInt(str.substring(0, 2), 16));
+            str = str.substring(2, str.length);
+        }
+
+        return result;
+    }
+
+    function encode(buf) {
+        if (buf.length % 4) return
+
+        var byte_nbr = 0
+        var buf_len = buf.length
+        var val = 0, code, idx, div
+
+        var dest = ''
+
+        while (byte_nbr < buf_len) {
+            val = (val * 256) + buf[byte_nbr++]
+            if (byte_nbr % 4) continue
+            div = 85 * 85 * 85 * 85
+            while (div >= 1) {
+                idx = Math.floor(val / div) % 85
+                dest += charset[idx]
+                div /= 85
+            }
+            val = 0
+        }
+
+        return dest
+    }
+
+    const getRanHex = size => {
+        let result = [];
+        let hexRef = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+
+        for (let n = 0; n < size; n++) {
+            result.push(hexRef[Math.floor(Math.random() * 16)]);
+        }
+        return result.join('');
+    }
     var qrcode = new QRCode(document.getElementById("qrcode"), {
         width: 200,
         height: 200
     });
 
     function makeCode() {
+        let snakeoil = '030101';
+        let tshex = Math.floor(Date.now() / 1000).toString(16);
+        tshex=tshex.match(/(..?)/g).reverse().join("");
+        snakeoil += tshex;
+        snakeoil += getRanHex(178);
+        snakeoil += sha256(parseHexString(snakeoil)).substring(0, 8)
+        snakeoil = encode(parseHexString(snakeoil));
         if ($('#qrcode canvas')) {
             $('#qrcode canvas').remove();
-        }
-        qrcode.makeCode('https://linktr.ee/zdfmagazinroyale');
+        }        
+        qrcode.makeCode(snakeoil);
     }
 
     makeCode();
