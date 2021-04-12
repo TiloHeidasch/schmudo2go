@@ -1,0 +1,19 @@
+image: alpine:latest
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+before_script:
+  - apk update && apk add git
+  - git submodule sync --recursive
+  - git submodule update --init --recursive
+
+pages:
+  stage: deploy
+  script:
+  - echo 'Nothing to do...'
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
