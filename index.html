@@ -25,7 +25,6 @@
         <div id="qrparent">
             <span>Dein anonymer QR-Code:</span>
             <div id="qrcode">
-                <canvas height="200" width="200"></canvas>
             </div>
         </div>
         <div id="buttonparent">
@@ -111,10 +110,8 @@
         snakeoil += getRanHex(178);
         snakeoil += sha256(parseHexString(snakeoil)).substring(0, 8)
         snakeoil = encode(parseHexString(snakeoil));
-        if ($('#qrcode canvas')) {
-            $('#qrcode canvas').remove();
-        }
         qrcode.makeCode(snakeoil);
+
     }
 
     makeCode();

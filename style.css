@@ -42,8 +42,7 @@ body {
     font-family: Montserrat-Medium, sans-serif;
 }
 
-#qrcode img,
-canvas {
+#qrcode img {
     height: 200px;
     width: 200px;
     background-color: #fff;
