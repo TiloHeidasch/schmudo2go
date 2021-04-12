@@ -36,7 +36,8 @@ body {
 
 #qrparent {
     width: 216px;
-    margin: 23.75vh auto 23vh;
+    max-width: 100%;
+    margin: 20vh auto 5vh;
     text-align: center;
     letter-spacing: .25px;
     font-family: Montserrat-Medium, sans-serif;
