@@ -2,6 +2,10 @@
 
 Just show a nice QR-Checkin-Page for those ones who want to scan your data.
 
+See autodeployed page:
+
+[wolf128058.gitlab.io/schmudo2go/](https://wolf128058.gitlab.io/schmudo2go)
+
 ## Credits:
 * z85-encoding-snippet:
  * https://github.com/michaelrhodes/z85.git (MIT)
