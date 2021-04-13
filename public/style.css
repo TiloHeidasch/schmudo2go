@@ -50,6 +50,10 @@ body {
     border: 8px solid #fff;
 }
 
+#qrcode {
+    width: 216px;
+}
+
 #buttonparent {
     width: 300px;
     margin: 0 auto;
