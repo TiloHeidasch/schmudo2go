@@ -36,7 +36,6 @@ body {
 
 #qrparent {
     width: 216px;
-    max-width: 100%;
     margin: 20vh auto 5vh;
     text-align: center;
     letter-spacing: .25px;
