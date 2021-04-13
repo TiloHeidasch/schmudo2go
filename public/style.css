@@ -35,23 +35,23 @@ body {
 }
 
 #qrparent {
-    width: 216px;
+    width: 208px;
     margin: 20vh auto 5vh;
     text-align: center;
     letter-spacing: .25px;
     font-family: Montserrat-Medium, sans-serif;
 }
 
+#imgparent {
+    padding: 4px 4px 2px 4px;
+    background-color: #fff;
+    max-width: 204px;
+}
+
 #qrcode img {
     height: 200px;
     width: 200px;
     background-color: #fff;
-    margin-top: 15px;
-    border: 8px solid #fff;
-}
-
-#qrcode {
-    width: 216px;
 }
 
 #buttonparent {
